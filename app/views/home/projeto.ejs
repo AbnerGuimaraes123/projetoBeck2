@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Repositório</title>
+		
+		<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+
+		<!-- incluindo css -->
+		<link href="css/style-bootstrap3.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/logoRepocitorio.ico" />
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header" >			
+					<img src="images/logoRepocitorio.png" class="small-image" />
+					
+				</div>
+					<%-include('../partes/navbar')%>
+			</div>
+			
+		</nav>
+		
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="formulario_wrapper sombra">
+		
+						<span class="projeto_autor">Disciplina: <%=JProjetos[0].disciplina%></span>
+						<span class="projeto_titulo"><strong><%=JProjetos[0].nome_projeto%></strong></span>
+						<% var dataFormatada = new Date(JProjetos[0].data_inicio).toLocaleDateString('pt-BR'); %>
+						<span class="projeto_data" id="data_inicio"><%= dataFormatada %></span>
+						<br>
+						<p>
+							<strong>Criador: <%=JProjetos[0].nome_usuario%></strong>
+							<br>
+							<strong>Orientador: <%=JProjetos[0].orientador%></strong>
+						</p>
+						<p class="projeto_resumo">
+							<%=JProjetos[0].resumo%>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<%-include('../partes/ulArquivos')%>	
+	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+		</script>
+
+	
+	</body>
+</html>

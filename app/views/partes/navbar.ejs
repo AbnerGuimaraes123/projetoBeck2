@@ -1,0 +1,27 @@
+<div id="navbar" class="navbar-collapse collapse">
+	
+	<ul class="nav navbar-nav navbar-right">
+
+		<li><a href="/">Home</a></li>
+		<%if(!isNaN(flagUsuario)){%>
+			<li><a href="/MeusProjetos">Meus Projetos</a></li>
+			<li><a href="/adicionar">Adicionar Projeto</a></li>
+			<li><a href="/sair">Sair</a></li>
+		<%}else{%>
+			<li><a href="/login">Login</a></li>
+			<li><a href="/cadastro">Cadastro</a></li>
+		<%}%>
+		<form action="/busca" method="post">
+			<select name="tipoBusca" id="tipoBusca" class="selectBusca">
+				<option value="nome_projeto">Título</option>
+				<option value="orientador">Orientador</option>
+				<option value="disciplina">Disciplina</option>
+			</select>
+			<input type="text" name="termoBusca" class="barraBusca">
+			<button type="submit" class="botaoBusca">Buscar</button>
+		</form>
+	</ul>
+	
+</div>
+			
+

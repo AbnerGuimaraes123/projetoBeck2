@@ -1,0 +1,21 @@
+<div class="row ">
+    <div class="col-md-12 ">
+        <div class="formulario_wrapper sombra">
+            <span class="projeto_autor">Disciplina: <%=JProjetos.disciplina%></span>
+            <a href="projeto?id_projeto=<%=JProjetos.id_projeto%>" class="projeto_titulo"><%=JProjetos.nome_projeto%></a>
+            <% var dataFormatada = new Date(JProjetos.data_inicio).toLocaleDateString('pt-BR'); %>
+            <span class="projeto_data"><%= dataFormatada %></span>
+            <br />
+            <p class="projeto_resumo">
+                <%=JProjetos.resumo%>
+            </p>
+            <% if(flagUsuario == JProjetos.id_user && !isNaN(flagUsuario)) { %>
+                <div class="botoes-projeto">                                  
+                    <a href="apagar_projeto?id_projeto=<%=JProjetos.id_projeto %>" class="btn btn-danger">Apagar</a>
+                    <a href="editar?id_projeto=<%=JProjetos.id_projeto %>" class="btn btn-primary">Editar</a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+

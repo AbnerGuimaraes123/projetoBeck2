@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Repositório</title>
+		
+		<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+
+		<!-- incluindo css -->
+		<link href="css/style-bootstrap3.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/logoRepocitorio.ico" />
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header" >			
+					<img src="images/logoRepocitorio.png" class="small-image" />
+					
+				</div>
+					<%-include('../partes/navbar')%>
+			</div>
+			
+		</nav>
+
+		<% if (JProjetos[0] != undefined) { %>
+			<div>
+				<h1 class="formulario_wrapper centro sombra">Projetos</h1>
+			</div>
+			<div class="container">
+				<%if(JProjetos.length>0){%>
+					<%for(var i=0;i<JProjetos.length;i++){%>	
+						<%- include('../partes/div_projetos', { JProjetos: JProjetos[i], i: i }) %>	
+					<%}%>
+				<%}%>
+			</div>
+		
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+			<script>
+				var dataProjeto = new Date('<%= JProjetos[0].data_inicio %>').toISOString().split('T')[0];
+				document.getElementById('data_inicio').innerText = dataProjeto;
+				</script>
+		<%}else{%>
+			<div>
+				<h1 class="formulario_wrapper centro sombra">Não á nenhum projeto</h1>
+			</div>
+		<%}%>
+		
+	</body>
+</html>
